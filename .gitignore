@@ -1,6 +1,12 @@
-# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
-bin
 obj
-
-# mstest test results
-TestResults
+bin
+out
+cache
+*.user
+*.suo
+packages
+_Resharper.*
+src/packages
+fubumvc-diagnostics
+csx
+*report.xml
