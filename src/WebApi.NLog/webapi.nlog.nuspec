@@ -1,25 +1,17 @@
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<package >
   <metadata>
-    <id>WebApi.NLog</id>
-    <version>0.1.2</version>
-    <authors>Dave Bettin</authors>
-    <owners>Dave Bettin</owners>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
     <licenseUrl>https://github.com/dbettin/webapi.nlog/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/dbettin/webapi.nlog</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Asp.Net WebApi NLog Tracing Support</description>
-    <releaseNotes />
+    <description>$description$</description>
+    <releaseNotes>Depend on WebApi.Core package instead of shipping Web.Http as lib.</releaseNotes>
     <copyright>Copyright 2012</copyright>
-    <language>en-US</language>
     <tags>NLog Asp.Net WebApi</tags>
-    <dependencies>
-      <dependency id="NLog" version="2.0" />
-    </dependencies>
   </metadata>
-  <files>
-    <file src="bin\Release\WebApi.NLog.dll" target="lib" />
-    <file src="bin\Release\System.Net.Http.dll" target="lib" />
-    <file src="bin\Release\System.Web.Http.dll" target="lib" />
-  </files>
 </package>
