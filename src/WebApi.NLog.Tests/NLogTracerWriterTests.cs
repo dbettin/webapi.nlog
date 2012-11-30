@@ -112,7 +112,6 @@ namespace WebApi.NLog.Tests
         [Fact]
         public void Must_Configure_Coupled_Renderers()
         {
-            NLogTraceWriter.ConfigureRenderers();
             Type renderer = null;
             ConfigurationItemFactory.Default.LayoutRenderers.TryGetDefinition("webapi-trace", out renderer);
             renderer.Should().Be(typeof (WebApiTraceRenderer));

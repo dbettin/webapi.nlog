@@ -18,7 +18,12 @@ namespace WebApi.NLog
 
         public NLogTraceWriter() { }
 
-        public static void ConfigureRenderers()
+        static NLogTraceWriter()
+        {
+            NLogTraceWriter.ConfigureRenderers();
+        }
+
+        private static void ConfigureRenderers()
         {
             ConfigurationItemFactory.Default.LayoutRenderers.RegisterDefinition("webapi-trace", typeof(WebApiTraceRenderer));
             ConfigurationItemFactory.Default.LayoutRenderers.RegisterDefinition("webapi-request", typeof(WebApiRequestRenderer));
