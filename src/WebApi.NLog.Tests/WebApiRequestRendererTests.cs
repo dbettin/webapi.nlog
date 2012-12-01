@@ -21,6 +21,8 @@ namespace WebApi.NLog.Tests
 
         public WebApiRequestRendererTests()
         {
+            EnsureLayoutRendersSetup.Please();
+
             // setup writer under test
             _writer = new NLogTraceWriter();
 

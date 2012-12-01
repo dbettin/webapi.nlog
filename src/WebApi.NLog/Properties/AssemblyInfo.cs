@@ -9,4 +9,3 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright ©  Dave Bettin")]
 [assembly: ComVisible(false)]
 [assembly: AssemblyVersion( "0.1.3.0" )]
-[assembly: AssemblyDescriptionAttribute("Asp.Net WebApi NLog Tracing Support")]

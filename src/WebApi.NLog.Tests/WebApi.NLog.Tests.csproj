@@ -67,12 +67,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnsureLayoutRendersSetup.cs" />
     <Compile Include="WebApiRequestRendererTests.cs" />
     <Compile Include="WebApiTraceRendererTests.cs" />
     <Compile Include="NLogTracerWriterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
