@@ -18,12 +18,6 @@ namespace WebApi.NLog
 
         public NLogTraceWriter() { }
 
-        public static void ConfigureRenderers()
-        {
-            ConfigurationItemFactory.Default.LayoutRenderers.RegisterDefinition("webapi-trace", typeof(WebApiTraceRenderer));
-            ConfigurationItemFactory.Default.LayoutRenderers.RegisterDefinition("webapi-request", typeof(WebApiRequestRenderer));
-        }
-
         public void Trace(HttpRequestMessage request, string category, TraceLevel level, Action<TraceRecord> traceAction)
         {
             // set nlog logger - note: this category is bypassed; the logger name in the log event info is used instead

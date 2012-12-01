@@ -8,7 +8,7 @@ namespace WebApi.NLog
     /// <summary>
     /// Layout renderer for asp.net's web api traced http request message.
     /// </summary>
-    [LayoutRenderer("webapi-request")]
+    [LayoutRenderer( "webapi-request" )]
     public class WebApiRequestRenderer : LayoutRenderer
     {
 
@@ -36,23 +36,29 @@ namespace WebApi.NLog
         /// <example>${webapi-request:content=true}</example>
         public bool Content { get; set; }
 
-        protected override void Append(StringBuilder builder, LogEventInfo logEvent)
+        protected override void Append( StringBuilder builder, LogEventInfo logEvent )
         {
-            var request = logEvent.Properties[NLogTraceWriter.RequestKey] as HttpRequestMessage;
+            object value;
+            if (!logEvent.Properties.TryGetValue( NLogTraceWriter.RequestKey, out value ))
+                return;
+
+            var request = value as HttpRequestMessage; ;
+            if (request == null)
+                return;
 
             if (request != null)
             {
                 if (Route)
-                    builder.Append(request.GetRouteData().Route.RouteTemplate);
+                    builder.Append( request.GetRouteData().Route.RouteTemplate );
 
                 if (Method)
-                    builder.Append(request.Method.Method);
+                    builder.Append( request.Method.Method );
 
                 if (Uri)
-                    builder.Append(request.RequestUri.AbsoluteUri);
+                    builder.Append( request.RequestUri.AbsoluteUri );
 
                 if (Content)
-                    builder.Append(request.Content.ReadAsStringAsync().Result);
+                    builder.Append( request.Content.ReadAsStringAsync().Result );
 
             }
         }
