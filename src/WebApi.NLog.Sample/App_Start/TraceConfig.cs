@@ -28,12 +28,14 @@ namespace WebApi.NLog.Sample
                 throw new ArgumentNullException("configuration");
             }
 
-            SystemDiagnosticsTraceWriter traceWriter =
-                new SystemDiagnosticsTraceWriter()
-                {
-                    MinimumLevel = TraceLevel.Info,
-                    IsVerbose = false
-                };
+            //SystemDiagnosticsTraceWriter traceWriter =
+            //    new SystemDiagnosticsTraceWriter()
+            //    {
+            //        MinimumLevel = TraceLevel.Info,
+            //        IsVerbose = false
+            //    };
+
+            var traceWriter = new NLogTraceWriter();
 
             configuration.Services.Replace(typeof(ITraceWriter), traceWriter);
         }
