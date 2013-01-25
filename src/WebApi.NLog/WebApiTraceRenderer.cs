@@ -48,6 +48,18 @@ namespace WebApi.NLog
         /// <example>${webapi-trace:kind:true}</example>
         public bool Kind { get; set; }
 
+        /// <summary>
+        ///  Type of content being returned (i.e, application/json, */*)
+        /// </summary>
+        /// <example>${webapi-trace:accepttype=true}</example>
+        public bool AcceptType { get; set; }
+
+        /// <summary>
+        /// URI of the host accessing the API (ie. localhost, 1.2.3.4)
+        /// </summary>
+        /// <example>${webapi-trace:host=true}</example>
+        public bool Host { get; set; }
+
         protected override void Append(StringBuilder builder, LogEventInfo logEvent)
         {
             var record =  logEvent.Properties[NLogTraceWriter.RecordKey] as TraceRecord;
@@ -71,6 +83,12 @@ namespace WebApi.NLog
 
                 if (Kind)
                     builder.Append(record.Kind.ToString());
+
+                if (AcceptType)
+                    builder.Append(record.Request.Headers.Accept.ToString());
+
+                if (Host)
+                    builder.Append(record.Request.Headers.Host);
             }
         }
     }
